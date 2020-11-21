@@ -83,7 +83,7 @@ const App = (props) => {
         Prev
       </button>
       <button data-testid="button-restart" onClick={resetData}>
-        Reset
+        Restart
       </button>
     </div>
   );
