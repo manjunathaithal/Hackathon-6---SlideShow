@@ -1,7 +1,5 @@
 import React, { Component, useEffect, useState } from "react";
 import "../styles/App.css";
-import Slide from "../data";
-import slides from "../data";
 
 const App = (props) => {
   const [currentState, setState] = useState({
@@ -10,8 +8,8 @@ const App = (props) => {
   });
   useEffect(() => {
     setState({
-      title: Slide[0].title,
-      text: Slide[0].text,
+      title: props.slides[0].title,
+      text: props.slides[0].text,
       len: 0,
       nextButton: false,
       prevButton: true,
@@ -20,18 +18,18 @@ const App = (props) => {
   const getNext = () => {
     let tempLen = currentState.len + 1;
 
-    if (tempLen < Slide.length) {
+    if (tempLen < props.slides.length) {
       setState({
         len: tempLen,
-        title: Slide[tempLen].title,
-        text: Slide[tempLen].text,
+        title: props.slides[tempLen].title,
+        text: props.slides[tempLen].text,
       });
     }
-    if (tempLen === Slide.length - 1) {
+    if (tempLen === props.slides.length - 1) {
       setState({
         len: tempLen,
-        title: Slide[tempLen].title,
-        text: Slide[tempLen].text,
+        title: props.slides[tempLen].title,
+        text: props.slides[tempLen].text,
         nextButton: true,
         prevButton: false,
       });
@@ -42,15 +40,15 @@ const App = (props) => {
     if (tempLen > -1) {
       setState({
         len: tempLen,
-        title: Slide[tempLen].title,
-        text: Slide[tempLen].text,
+        title: props.slides[tempLen].title,
+        text: props.slides[tempLen].text,
       });
     }
     if (tempLen === 0) {
       setState({
         len: tempLen,
-        title: Slide[tempLen].title,
-        text: Slide[tempLen].text,
+        title: props.slides[tempLen].title,
+        text: props.slides[tempLen].text,
         nextButton: false,
         prevButton: true,
       });
@@ -58,8 +56,8 @@ const App = (props) => {
   };
   const resetData = () => {
     setState({
-      title: Slide[0].title,
-      text: Slide[0].text,
+      title: props.slides[0].title,
+      text: props.slides[0].text,
       len: 0,
       nextButton: false,
       prevButton: true,
