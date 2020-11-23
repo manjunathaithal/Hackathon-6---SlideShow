@@ -61,6 +61,8 @@ const App = (props) => {
       title: Slide[0].title,
       text: Slide[0].text,
       len: 0,
+      nextButton: false,
+      prevButton: true,
     });
   };
   return (
