@@ -13,6 +13,7 @@ const App = (props) => {
       len: 0,
       nextButton: false,
       prevButton: true,
+      disButton: true,
     });
   }, []);
   const getNext = () => {
@@ -32,6 +33,7 @@ const App = (props) => {
         text: props.slides[tempLen].text,
         nextButton: true,
         prevButton: false,
+        disButton: false,
       });
     }
   };
@@ -51,6 +53,7 @@ const App = (props) => {
         text: props.slides[tempLen].text,
         nextButton: false,
         prevButton: true,
+        disButton: true,
       });
     }
   };
@@ -61,6 +64,7 @@ const App = (props) => {
       len: 0,
       nextButton: false,
       prevButton: true,
+      disButton: true,
     });
   };
   return (
@@ -82,7 +86,11 @@ const App = (props) => {
       >
         Prev
       </button>
-      <button data-testid="button-restart" onClick={resetData}>
+      <button
+        data-testid="button-restart"
+        onClick={resetData}
+        disabled={currentState.disButton}
+      >
         Restart
       </button>
     </div>
